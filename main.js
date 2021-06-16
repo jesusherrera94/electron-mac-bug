@@ -3,12 +3,12 @@ const path = require('path')
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
-    title:"Parent window",
+    title: "Parent window",
     fullscreen: true,
     frame: true,
     alwaysOnTop: true,
     show: false,
-  })
+  });
   const childWindow = new BrowserWindow({
     parent: mainWindow,
     width: 300,
@@ -24,8 +24,7 @@ function createWindow () {
   mainWindow.loadURL('https://www.google.com/');
   childWindow.loadFile('child.html');
   mainWindow.show();
-  childWindow.show();
-
+  setTimeout(()=>{childWindow.show();}, 500)
 }
 
 app.whenReady().then(() => {
